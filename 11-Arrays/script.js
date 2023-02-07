@@ -121,3 +121,18 @@ let arr = ['a', 'b', 'c', 'd', 'e'];
 //     console.log(`Movement ${i}, you have deposited ${mov}`);
 //   }
 // });
+
+//
+
+///////////
+///
+// const currencies = new Map([
+//   ['USD', 'United States dollar'],
+//   ['EUR', 'Euro'],
+//   ['GBP', 'Pound sterling'],
+// ]);
+
+// //forEach in maps
+// currencies.forEach(function (value, key, map) {
+//   console.log(`${key}:${value}`);
+// });
