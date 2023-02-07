@@ -71,6 +71,36 @@ const currencies = new Map([
   ['GBP', 'Pound sterling'],
 ]);
 
-const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 /////////////////////////////////////////////////
+let arr = ['a', 'b', 'c', 'd', 'e'];
+
+//Slice method
+// console.log(arr.slice(2));
+// console.log(arr.slice(2, 4));
+// console.log(arr.slice(-2));
+// console.log(arr.slice(-1));
+// console.log(arr.slice(1, -2));
+// console.log(...arr);
+
+//Splice method
+// console.log(arr.splice(2));
+// console.log(arr.splice(-1));
+// console.log(arr);
+
+//Reverse Method
+// arr = ['a', 'b', 'c', 'd', 'e'];
+// console.log(arr.reverse());
+// console.log(arr);
+
+//Concat method
+// arr = ['a', 'b', 'c', 'd', 'e'];
+// let arr2 = ['f', 'g', 'h', 'i', 'j'];
+
+// console.log(arr.concat(arr2));
+
+// //join
+// console.log(typeof arr.join('-'));
+
+///Loops in array
