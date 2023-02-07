@@ -65,11 +65,11 @@ const inputClosePin = document.querySelector('.form__input--pin');
 /////////////////////////////////////////////////
 // LECTURES
 
-const currencies = new Map([
-  ['USD', 'United States dollar'],
-  ['EUR', 'Euro'],
-  ['GBP', 'Pound sterling'],
-]);
+// const currencies = new Map([
+//   ['USD', 'United States dollar'],
+//   ['EUR', 'Euro'],
+//   ['GBP', 'Pound sterling'],
+// ]);
 
 // const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
@@ -103,4 +103,21 @@ let arr = ['a', 'b', 'c', 'd', 'e'];
 // //join
 // console.log(typeof arr.join('-'));
 
+//////////////////
 ///Loops in array
+/////////////////
+// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+// //for of loop
+// for (const movement of movements) {
+//   if (movement > 0) {
+//     console.log(`You deposited`);
+//   }
+// }
+
+// //forEach
+// movements.forEach(function (mov, i, arr) {
+//   if (mov > 0) {
+//     console.log(`Movement ${i}, you have deposited ${mov}`);
+//   }
+// });
