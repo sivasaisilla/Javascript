@@ -84,6 +84,41 @@ const displayMovements = function (movements) {
 
 displayMovements(account1.movements);
 
+//////Display Summary
+const calcDisplaySummary = function (movements) {
+  const incomes = movements
+    .filter(mov => mov > 0)
+    .reduce((acc, mov) => acc + mov, 0);
+  labelSumIn.textContent = `${incomes}₹`;
+
+  const out = movements
+    .filter(mov => mov < 0)
+    .reduce((acc, mov) => acc + mov, 0);
+  labelSumOut.textContent = `${Math.abs(out)}₹`;
+
+  const interest = movements
+    .filter(mov => mov > 0)
+    .map(deposit => (deposit * 4) / 100)
+    .filter((int, i, arr) => {
+      return int >= 1;
+    })
+    .reduce((acc, int) => acc + int, 0);
+  labelSumInterest.textContent = `${interest}₹`;
+};
+
+calcDisplaySummary(account1.movements);
+
+//////////Displaying Balance
+const calcDisplayBalance = function (movements) {
+  const balance = movements.reduce(function (acc, mov) {
+    return mov + acc;
+  }, 0);
+  labelBalance.textContent = `${balance}₹`;
+};
+
+calcDisplayBalance(account1.movements);
+
+//////////Creating Usernames
 const createUsernames = function (accs) {
   accs.forEach(function (acc) {
     acc.username = acc.owner
@@ -93,15 +128,7 @@ const createUsernames = function (accs) {
       .join('');
   });
 };
-
-const calcDisplayBalance = function (movements) {
-  const balance = movements.reduce(function (acc, mov) {
-    return mov + acc;
-  }, 0);
-  labelBalance.textContent = `${balance}₹`;
-};
-
-calcDisplayBalance(account1.movements);
+createUsernames(accounts);
 
 /////////////////////////////////////////////////
 // LECTURES
