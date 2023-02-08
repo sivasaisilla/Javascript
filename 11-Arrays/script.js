@@ -160,9 +160,27 @@ const displayMovements = function (movements) {
 
 displayMovements(account1.movements);
 
-const rupToUsd = 0.0125;
-const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
-const movementsUSD = movements.map(function (mov) {
-  return mov * rupToUsd;
-});
-console.log(movementsUSD);
+//rupee to usd coversion using map method
+// const rupToUsd = 0.0125;
+// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+// const movementsUSD = movements.map(function (mov) {
+//   return mov * rupToUsd;
+// });
+// console.log(movementsUSD);
+
+// ///////////
+// //computing usernames
+// ///////////////////////////////
+
+// const createUsernames = function (accs) {
+//   accs.forEach(function (acc) {
+//     acc.username = acc.owner
+//       .toLowerCase()
+//       .split(' ')
+//       .map(name => name[0])
+//       .join('');
+//   });
+// };
+
+// createUsernames(accounts);
+// console.log(accounts);
