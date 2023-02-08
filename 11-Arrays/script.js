@@ -1,84 +1,8 @@
 'use strict';
 
 /////////////////////////////////////////////////
-/////////////////////////////////////////////////
-// LECTURES
-
-// const currencies = new Map([
-//   ['USD', 'United States dollar'],
-//   ['EUR', 'Euro'],
-//   ['GBP', 'Pound sterling'],
-// ]);
-
-// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
-
-/////////////////////////////////////////////////
-let arr = ['a', 'b', 'c', 'd', 'e'];
-
-//Slice method
-// console.log(arr.slice(2));
-// console.log(arr.slice(2, 4));
-// console.log(arr.slice(-2));
-// console.log(arr.slice(-1));
-// console.log(arr.slice(1, -2));
-// console.log(...arr);
-
-//Splice method
-// console.log(arr.splice(2));
-// console.log(arr.splice(-1));
-// console.log(arr);
-
-//Reverse Method
-// arr = ['a', 'b', 'c', 'd', 'e'];
-// console.log(arr.reverse());
-// console.log(arr);
-
-//Concat method
-// arr = ['a', 'b', 'c', 'd', 'e'];
-// let arr2 = ['f', 'g', 'h', 'i', 'j'];
-
-// console.log(arr.concat(arr2));
-
-// //join
-// console.log(typeof arr.join('-'));
-
-//////////////////
-///Loops in array
-/////////////////
-// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
-
-// //for of loop
-// for (const movement of movements) {
-//   if (movement > 0) {
-//     console.log(`You deposited`);
-//   }
-// }
-
-// //forEach
-// movements.forEach(function (mov, i, arr) {
-//   if (mov > 0) {
-//     console.log(`Movement ${i}, you have deposited ${mov}`);
-//   }
-// });
-
-//
-
-///////////
-///
-// const currencies = new Map([
-//   ['USD', 'United States dollar'],
-//   ['EUR', 'Euro'],
-//   ['GBP', 'Pound sterling'],
-// ]);
-
-// //forEach in maps
-// currencies.forEach(function (value, key, map) {
-//   console.log(`${key}:${value}`);
-// });
-
-/////////////////////////////////////////////////
-/////////////////////////////////////////////////
 // BANKIST APP
+/////////////////////////////////////////////////
 
 // Data
 const account1 = {
@@ -160,6 +84,104 @@ const displayMovements = function (movements) {
 
 displayMovements(account1.movements);
 
+const createUsernames = function (accs) {
+  accs.forEach(function (acc) {
+    acc.username = acc.owner
+      .toLowerCase()
+      .split(' ')
+      .map(name => name[0])
+      .join('');
+  });
+};
+
+const calcDisplayBalance = function (movements) {
+  const balance = movements.reduce(function (acc, mov) {
+    return mov + acc;
+  }, 0);
+  labelBalance.textContent = `${balance}₹`;
+};
+
+calcDisplayBalance(account1.movements);
+
+/////////////////////////////////////////////////
+// LECTURES
+/////////////////////////////////////////////////
+
+// const currencies = new Map([
+//   ['USD', 'United States dollar'],
+//   ['EUR', 'Euro'],
+//   ['GBP', 'Pound sterling'],
+// ]);
+
+// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+/////////////////////////////////////////////////
+let arr = ['a', 'b', 'c', 'd', 'e'];
+
+//Slice method
+// console.log(arr.slice(2));
+// console.log(arr.slice(2, 4));
+// console.log(arr.slice(-2));
+// console.log(arr.slice(-1));
+// console.log(arr.slice(1, -2));
+// console.log(...arr);
+
+//Splice method
+// console.log(arr.splice(2));
+// console.log(arr.splice(-1));
+// console.log(arr);
+
+//Reverse Method
+// arr = ['a', 'b', 'c', 'd', 'e'];
+// console.log(arr.reverse());
+// console.log(arr);
+
+//Concat method
+// arr = ['a', 'b', 'c', 'd', 'e'];
+// let arr2 = ['f', 'g', 'h', 'i', 'j'];
+
+// console.log(arr.concat(arr2));
+
+// //join
+// console.log(typeof arr.join('-'));
+
+//////////////////
+///Loops in array
+/////////////////
+// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+// //for of loop
+// for (const movement of movements) {
+//   if (movement > 0) {
+//     console.log(`You deposited`);
+//   }
+// }
+
+// //forEach
+// movements.forEach(function (mov, i, arr) {
+//   if (mov > 0) {
+//     console.log(`Movement ${i}, you have deposited ${mov}`);
+//   }
+// });
+
+//
+
+///////////
+///
+// const currencies = new Map([
+//   ['USD', 'United States dollar'],
+//   ['EUR', 'Euro'],
+//   ['GBP', 'Pound sterling'],
+// ]);
+
+// //forEach in maps
+// currencies.forEach(function (value, key, map) {
+//   console.log(`${key}:${value}`);
+// });
+
+///////////////
+//////
+
 //rupee to usd coversion using map method
 // const rupToUsd = 0.0125;
 // const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
@@ -185,17 +207,28 @@ displayMovements(account1.movements);
 // createUsernames(accounts);
 // console.log(accounts);
 
-/////////////////////////
-//Filter method
-/////////////////////////
-const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
-const deposits = movements.filter(function (mov) {
-  return mov > 0;
-});
+// /////////////////////////
+// //Filter method
+// /////////////////////////
+// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+// const deposits = movements.filter(function (mov) {
+//   return mov > 0;
+// });
 
-const withdrawals = movements.filter(function (mov) {
-  return mov < 0;
-});
-console.log(movements);
-console.log(deposits);
-console.log(withdrawals);
+// const withdrawals = movements.filter(function (mov) {
+//   return mov < 0;
+// });
+// console.log(movements);
+// console.log(deposits);
+// console.log(withdrawals);
+
+// /////////////////////////
+// //Reduce method
+// /////////////////////////
+// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+// const balance = movements.reduce(function (acc, cur, i, arr) {
+//   console.log(`Iteration ${i}: ${acc}`);
+//   return acc + cur;
+// }, 0);
+// console.log(balance);
