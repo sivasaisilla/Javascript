@@ -82,21 +82,19 @@ const displayMovements = function (movements) {
   });
 };
 
-displayMovements(account1.movements);
-
 //////Display Summary
-const calcDisplaySummary = function (movements) {
-  const incomes = movements
+const calcDisplaySummary = function (acc) {
+  const incomes = acc.movements
     .filter(mov => mov > 0)
     .reduce((acc, mov) => acc + mov, 0);
   labelSumIn.textContent = `${incomes}₹`;
 
-  const out = movements
+  const out = acc.movements
     .filter(mov => mov < 0)
     .reduce((acc, mov) => acc + mov, 0);
   labelSumOut.textContent = `${Math.abs(out)}₹`;
 
-  const interest = movements
+  const interest = acc.movements
     .filter(mov => mov > 0)
     .map(deposit => (deposit * 4) / 100)
     .filter((int, i, arr) => {
@@ -106,8 +104,6 @@ const calcDisplaySummary = function (movements) {
   labelSumInterest.textContent = `${interest}₹`;
 };
 
-calcDisplaySummary(account1.movements);
-
 //////////Displaying Balance
 const calcDisplayBalance = function (movements) {
   const balance = movements.reduce(function (acc, mov) {
@@ -115,8 +111,6 @@ const calcDisplayBalance = function (movements) {
   }, 0);
   labelBalance.textContent = `${balance}₹`;
 };
-
-calcDisplayBalance(account1.movements);
 
 //////////Creating Usernames
 const createUsernames = function (accs) {
@@ -130,6 +124,44 @@ const createUsernames = function (accs) {
 };
 createUsernames(accounts);
 
+///
+//event Listener
+//
+let currentAccount;
+
+btnLogin.addEventListener('click', function (e) {
+  ///preventing form submitting
+  e.preventDefault();
+  currentAccount = accounts.find(
+    acc => acc.username === inputLoginUsername.value
+  );
+  console.log(currentAccount);
+
+  //Optional chaining is used here ("?")
+  if (currentAccount?.pin === Number(inputLoginPin.value)) {
+    labelWelcome.textContent = `Welcome back, ${
+      currentAccount.owner.split(' ')[0]
+    }`;
+
+    containerApp.style.opacity = 100;
+
+    //clear input fields
+    inputLoginUsername.value = inputLoginPin.value = '';
+    inputLoginPin.blur();
+
+    //Display Movements
+    displayMovements(currentAccount.movements);
+
+    //Display Balance
+    calcDisplayBalance(currentAccount.movements);
+
+    //Display Summary
+    calcDisplaySummary(currentAccount);
+  }
+});
+
+// console.log(kcnvnsdjn);
+///////
 /////////////////////////////////////////////////
 // LECTURES
 /////////////////////////////////////////////////
